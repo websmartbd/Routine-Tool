@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ক্লাস রুটিন - দর্শন বিভাগ</title>
+    <!-- Social Media Meta Tags -->
+    <meta name="description" content="কারমাইকেল কলেজ, রংপুর। দর্শন বিভাগের সকল বর্ষের ক্লাস রুটিন।">
+    <meta property="og:title" content="দর্শন বিভাগের সকল বর্ষের ক্লাস রুটিন">
+    <meta property="og:description" content="কারমাইকেল কলেজ, রংপুর।">
+    <meta property="og:image" content="/philosophy_dept.png">
+    <!-- Placeholder for image -->
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .glass.p-5.rounded-3xl.shadow-sm.transition-all {
+            border-color: #e5e7eb;
+        }
+
+        :root {
+            --primary: #4f46e5;
+            --primary-glow: rgba(79, 70, 229, 0.4);
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+            --card-glass: rgba(255, 255, 255, 0.85);
+        }
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: #1e293b;
+        }
+
+        .glass {
+            background: var(--card-glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
+
+        .active-tab {
+            background: var(--primary) !important;
+            color: white !important;
+            border-color: transparent !important;
+            box-shadow: 0 12px 24px -6px var(--primary-glow);
+            transform: translateY(-4px);
+        }
+
+        .tab-btn {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Pulsing Live Indicator */
+        .live-pulse {
+            position: relative;
+        }
+
+        .live-pulse::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 10px;
+            height: 10px;
+            background: #10b981;
+            border-radius: 50%;
+            border: 2px solid white;
+            animation: pulse-ring 1.5s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.8);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+
+            70% {
+                transform: scale(1.1);
+                box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+            }
+
+            100% {
+                transform: scale(0.8);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        .day-tab {
+            white-space: nowrap;
+            padding: 10px 20px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.4s;
+            color: #64748b;
+        }
+
+        .day-tab.active {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 40px;
+            bottom: -20px;
+            width: 2px;
+            background: #e2e8f0;
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .live-card {
+            border: 2px solid var(--primary);
+            background: #f5f3ff;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-card {
+            animation: slideUp 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+
+        button.tab-btn.flex-none.px-6.py-2\.5.bg-white.border.border-gray-200.rounded-xl.font-bold {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body class="md:p-10">
+
+    <div id="main-card" class="max-w-7xl mx-auto bg-white shadow-2xl rounded-xl overflow-hidden hidden">
+        <div class="bg-indigo-700 p-6 text-center text-white">
+            <div class="hidden md:flex justify-between items-center mb-4">
+                <button onclick="showWelcomePage()" class="flex items-center text-white hover:text-indigo-200 transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    পিছনে
+                </button>
+                <h1 id="college-name" class="text-2xl md:text-3xl font-bold">কারমাইকেল কলেজ, রংপুর</h1>
+                <div></div> <!-- Empty div for spacing to center the title -->
+            </div>
+            <h1 id="college-name-mobile" class="text-2xl md:text-3xl font-bold mb-1 md:hidden text-center">কারমাইকেল কলেজ, রংপুর</h1>
+            <h2 id="dept-title" class="text-xl font-semibold opacity-90">দর্শন বিভাগ: ক্লাস রুটিন</h2>
+            <p id="effective-date" class="text-sm mt-2 bg-indigo-800 inline-block px-4 py-1 rounded-full text-indigo-100">কার্যকর:
+                ১০/১১/২০২৫ থেকে</p>
+        </div>
+
+        <!-- Desktop Table View (Hidden on mobile) -->
+        <div class="hidden md:block overflow-x-auto">
+            <table class="w-full text-center border-collapse">
+                <thead>
+                    <tr class="bg-gray-100 border-b-2 border-indigo-200 text-indigo-900 text-sm md:text-base">
+                        <th class="py-4 px-4 font-bold border-r">দিন</th>
+                        <th class="py-4 px-2 font-bold border-r">১ম পিরিয়ড<br><span
+                                class="text-[10px] font-normal">০৮:৪৫-০৯:৩০</span></th>
+                        <th class="py-4 px-2 font-bold border-r">২য় পিরিয়ড<br><span
+                                class="text-[10px] font-normal">০৯:৩১-১০:১৫</span></th>
+                        <th class="py-4 px-2 font-bold border-r">৩য় পিরিয়ড<br><span
+                                class="text-[10px] font-normal">১০:১৬-১১:০০</span></th>
+                        <th class="py-4 px-2 font-bold border-r">৪র্থ পিরিয়ড<br><span
+                                class="text-[10px] font-normal">১১:০০-১১:৪৫</span></th>
+                        <th class="py-4 px-2 font-bold border-r">৫ম পিরিয়ড<br><span
+                                class="text-[10px] font-normal">১১:৪৫-১২:৩০</span></th>
+                        <th class="py-4 px-2 font-bold border-r">৬ষ্ঠ পিরিয়ড<br><span
+                                class="text-[10px] font-normal">১২:৩০-০১:১৫</span></th>
+                        <th class="py-4 px-2 font-bold">৭ম পিরিয়ড<br><span
+                                class="text-[10px] font-normal">০১:১৫-০২:০০</span></th>
+                    </tr>
+                </thead>
+                <tbody id="routine-rows" class="text-gray-700 font-medium"></tbody>
+            </table>
+        </div>
+
+        <!-- Mobile View (Day Tabs + Cards) -->
+        <div class="md:hidden">
+            <!-- Day Selector Sticky -->
+            <div
+                class="sticky top-0 z-10 glass border-b border-gray-100 px-4 py-3 flex overflow-x-auto no-scrollbar gap-2 shadow-sm">
+                <button onclick="switchMobileDay('রবিবার')" class="day-tab day-btn" id="btn-রবিবার">রবি</button>
+                <button onclick="switchMobileDay('সোমবার')" class="day-tab day-btn" id="btn-সোমবার">সোম</button>
+                <button onclick="switchMobileDay('মঙ্গলবার')" class="day-tab day-btn" id="btn-মঙ্গলবার">মঙ্গল</button>
+                <button onclick="switchMobileDay('বুধবার')" class="day-tab day-btn" id="btn-বুধবার">বুধ</button>
+                <button onclick="switchMobileDay('বৃহস্পতিবার')" class="day-tab day-btn"
+                    id="btn-বৃহস্পতিবার">বৃহঃ</button>
+                <button onclick="switchMobileDay('শুক্রবার')" class="day-tab day-btn" id="btn-শুক্রবার">শুক্র</button>
+                <button onclick="switchMobileDay('শনিবার')" class="day-tab day-btn" id="btn-শনিবার">শনি</button>
+            </div>
+
+            <div id="mobile-cards-list" class="p-6">
+                <!-- Data will be injected here -->
+            </div>
+        </div>
+
+        <div class="bg-gray-50 p-6 border-t">
+            <div class="mb-4 md:hidden">
+                <button onclick="showWelcomePage()" class="flex items-center justify-center w-full py-3 px-4 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    পিছনে
+                </button>
+            </div>
+            <div class="mt-6 text-center text-gray-500 text-xs italic">
+                Made With ❤️ By <a href="https://www.facebook.com/bmshifat0/" class="font-semibold text-indigo-600">B.M Shifat</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="welcome-msg" class="max-w-4xl mx-auto px-4 py-12">
+        <div class="glass p-8 rounded-3xl shadow-lg border border-gray-200 text-center">
+            <div class="flex justify-center mb-6">
+                <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center">
+                    <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+            </div>
+            <h2 id="welcome-college-name" class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">কারমাইকেল কলেজ, রংপুর</h2>
+            <h3 id="welcome-dept-name" class="text-xl md:text-2xl font-semibold text-indigo-700 mb-4">দর্শন বিভাগের ক্লাস রুটিন</h3>
+            <p class="text-gray-600 mb-6 max-w-md mx-auto">আপনার শিক্ষাবর্ষ নির্বাচন করুন এবং আপনার সাপ্তাহিক ক্লাস রুটিন দেখুন</p>
+            <div id="year-container"
+                class="flex justify-center mb-6">
+                <div class="relative w-full md:w-64">
+                    <select id="year-dropdown" onchange="handleYearChange(this)" onclick="toggleDropdownIcon(this)" onblur="resetDropdownIcon(this)"
+                        class="w-full px-4 py-3 pr-10 bg-white border border-gray-200 rounded-xl font-bold text-gray-700 shadow-sm text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        <option value="" disabled selected>আপনার বর্ষ নির্বাচন করুন</option>
+                        <option value="1st">১ম বর্ষ</option>
+                        <option value="2nd">২য় বর্ষ</option>
+                        <option value="3rd">৩য় বর্ষ</option>
+                        <option value="4th">৪র্থ বর্ষ</option>
+                        <option value="masters">মাস্টার্স</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                        <svg id="dropdown-icon" class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div id="welcome-effective-date" class="inline-block bg-indigo-50 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium">
+                <span class="mr-2">📅</span> কার্যকর: ১০/১১/২০২৫ থেকে
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let appData = null;
+        
+        // Load data from JSON file
+        fetch('philosophy.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                appData = data;
+                updateCollegeInfo();
+            })
+            .catch(error => {
+                console.error('Error loading data:', error);
+                alert('দুঃখিত, তথ্য লোড করতে সমস্যা হচ্ছে। অনুগ্রহ করে পুনরায় লোড করুন।');
+            });
+                    
+        // Update college info from JSON data
+        function updateCollegeInfo() {
+            if (appData && appData.college) {
+                document.getElementById('college-name').textContent = appData.college.name;
+                document.getElementById('college-name-mobile').textContent = appData.college.name;
+                document.getElementById('dept-title').textContent = `${appData.college.department}: ক্লাস রুটিন`;
+                document.getElementById('effective-date').textContent = `কার্যকর: ${appData.college.effectiveDate} থেকে`;
+                
+                document.getElementById('welcome-college-name').textContent = appData.college.name;
+                document.getElementById('welcome-dept-name').textContent = `${appData.college.department}ের ক্লাস রুটিন`;
+                document.getElementById('welcome-effective-date').innerHTML = `<span class="mr-2">📅</span> কার্যকর: ${appData.college.effectiveDate} থেকে`;
+            }
+        }
+                
+        // Function to ensure data is loaded before using it
+        function waitForData() {
+            return new Promise((resolve) => {
+                const checkData = () => {
+                    if (appData) {
+                        resolve(appData);
+                    } else {
+                        setTimeout(checkData, 100);
+                    }
+                }
+                checkData();
+            });
+        }
+        
+        let currentYearData = null;
+        let selectedYear = null;
+
+        async function handleYearChange(selectElement) {
+            const year = selectElement.value;
+            if (year) {
+                await showRoutine(year, null);
+            }
+        }
+        
+        function toggleDropdownIcon(selectElement) {
+            const icon = document.getElementById('dropdown-icon');
+            // Toggle the rotation class to rotate 180 degrees when dropdown is active
+            icon.classList.toggle('rotate-180');
+        }
+        
+        function resetDropdownIcon(selectElement) {
+            const icon = document.getElementById('dropdown-icon');
+            // Remove the rotation when dropdown loses focus
+            icon.classList.remove('rotate-180');
+        }
+        
+        async function showRoutine(year, btn) {
+            // Wait for data to be loaded
+            await waitForData();
+            
+            selectedYear = year;
+            document.getElementById('welcome-msg').style.display = 'none';
+            document.getElementById('main-card').classList.remove('hidden');
+            // Remove active class from buttons (if any)
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active-tab'));
+            // If btn is provided (from button click), add active class
+            if (btn) {
+                btn.classList.add('active-tab');
+                // Scroll the selected year to the middle
+                btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            } else {
+                // If called from dropdown, we don't have a button to highlight
+                // No scrolling needed in this case
+            }
+
+            const names = { "1st": "১ম বর্ষ", "2nd": "২য় বর্ষ", "3rd": "৩য় বর্ষ", "4th": "৪র্থ বর্ষ", "masters": "মাস্টার্স শেষ পর্ব" };
+
+            document.getElementById('dept-title').innerText = `দর্শন বিভাগ: ${names[year]} ক্লাস রুটিন`;
+
+            const tbody = document.getElementById('routine-rows');
+            tbody.innerHTML = '';
+
+            const dayNames = ["রবিবার", "সোমবার", "মঙ্গলবার", "বুধবার", "বৃহস্পতিবার", "শুক্রবার", "শনিবার"];
+
+            dayNames.forEach(dayName => {
+                const dayData = appData.routines[year].find(d => d[0] === dayName) || [dayName, "---"];
+                const isOffDay = dayData[1] === "অফ ডে" || dayData.slice(1).every(cell => !cell || cell === "" || cell === "---");
+
+                // Render Desktop Table
+                const tr = document.createElement('tr');
+                tr.className = "border-b hover:bg-indigo-50/50 transition-colors";
+                if (isOffDay) {
+                    tr.innerHTML = `<td class="py-6 px-4 font-bold bg-red-50 text-red-600 border-r">${dayName}</td><td colspan="7" class="py-6 italic text-red-400 font-semibold text-lg bg-red-50">সাপ্তাহিক ছুটি / কোনো ক্লাস নেই</td>`;
+                } else {
+                    let html = `<td class="py-5 px-4 font-bold bg-gray-50/50 border-r text-indigo-900">${dayName}</td>`;
+                    for (let i = 1; i <= 7; i++) {
+                        let cell = dayData[i] || "";
+                        if (cell && cell !== "---") {
+                            let parts = cell.split(' ');
+                            let nameKey = parts[0].replace(/[^A-Z]/g, "");
+                            let fullName = appData.teachers[nameKey] || parts[0];
+                            let room = parts[1] || "";
+                            html += `<td class="py-4 px-1 border-r"><div class="text-gray-900 leading-tight font-semibold">${fullName}</div><div class="text-[11px] text-indigo-600 font-bold mt-1 bg-indigo-50 py-0.5 px-2 rounded inline-block">${room}</div></td>`;
+                        } else {
+                            html += `<td class="py-4 px-1 border-r text-gray-200">---</td>`;
+                        }
+                    }
+                    tr.innerHTML = html;
+                }
+                tbody.appendChild(tr);
+            });
+
+            // Handle Mobile Day Selection
+            const today = new Intl.DateTimeFormat('bn-BD', { weekday: 'long' }).format(new Date());
+            const targetDay = dayNames.includes(today) ? today : "রবিবার";
+            switchMobileDay(targetDay);
+
+            const tInfo = document.getElementById('teacher-info');
+            tInfo.innerHTML = Object.entries(appData.teachers).map(([key, val]) => `<div class="flex items-center space-x-3 bg-white p-3 rounded-xl border border-gray-100 shadow-sm transition-transform hover:scale-[1.02]"><div class="w-10 h-10 bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold rounded-lg">${key}</div><div class="text-xs"> <div class="font-bold text-gray-900">${val.split(' (')[0]}</div><div class="text-gray-500">${val.includes('(') ? '(' + val.split(' (')[1] : ''}</div></div></div>`).join('');
+        }
+
+        async function showWelcomePage() {
+            // Wait for data to be loaded before navigating
+            await waitForData();
+            
+            document.getElementById('main-card').classList.add('hidden');
+            document.getElementById('welcome-msg').style.display = 'block';
+            
+            // Reset year selection
+            const yearDropdown = document.getElementById('year-dropdown');
+            if (yearDropdown) {
+                yearDropdown.selectedIndex = 0;
+            }
+        }
+
+        async function switchMobileDay(dayName) {
+            // Wait for data to be loaded
+            await waitForData();
+            
+            const container = document.getElementById('mobile-cards-list');
+            container.innerHTML = '';
+
+            document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+            const activeBtn = document.getElementById(`btn-${dayName}`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+                // Auto-center the selected day in mobile navigation
+                activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+
+            const dayData = appData.routines[selectedYear].find(d => d[0] === dayName) || [dayName, "---"];
+            const isOffDay = dayData[1] === "অফ ডে" || dayData.slice(1).every(cell => !cell || cell === "" || cell === "---");
+
+            // Period times in minutes from midnight for "Live" detection
+            const periodTimes = [
+                { start: 525, end: 570 }, // 08:45 - 09:30
+                { start: 571, end: 615 }, // 09:31 - 10:15
+                { start: 616, end: 660 }, // 10:16 - 11:00
+                { start: 660, end: 705 }, // 11:00 - 11:45
+                { start: 705, end: 750 }, // 11:45 - 12:30
+                { start: 750, end: 795 }, // 12:30 - 01:15
+                { start: 795, end: 840 }  // 01:15 - 02:00
+            ];
+
+            const now = new Date();
+            const currentDayBN = new Intl.DateTimeFormat('bn-BD', { weekday: 'long' }).format(now);
+            const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+            if (isOffDay) {
+                container.innerHTML = `
+                <div class="flex flex-col items-center justify-center py-24 text-center animate-card">
+                    <div class="w-24 h-24 bg-red-50 rounded-3xl flex items-center justify-center text-red-400 mb-6 shadow-sm">
+                        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div class="text-2xl font-bold text-gray-800">ছুটি!</div>
+                    <div class="text-gray-400 mt-2 font-medium">আজ কোনো ক্লাস নেই</div>
+                </div>`;
+            } else {
+                let html = '<div class="space-y-8 pb-10">';
+                const periods = [
+                    { id: "১ম", time: "০৮:৪৫-০৯:৩০" }, { id: "২য়", time: "০৯:৩১-১০:১৫" },
+                    { id: "৩য়", time: "১০:১৬-১১:০০" }, { id: "৪র্থ", time: "১১:০০-১১:৪৫" },
+                    { id: "৫ম", time: "১১:৪৫-১২:৩০" }, { id: "৬ষ্ঠ", time: "১২:৩০-০১:১৫" },
+                    { id: "৭ম", time: "০১:১৫-০২:০০" }
+                ];
+
+                for (let i = 1; i <= 7; i++) {
+                    let cell = dayData[i] || "";
+                    if (cell && cell !== "---") {
+                        let parts = cell.split(' ');
+                        let nameKey = parts[0].replace(/[^A-Z]/g, "");
+                        let fullName = appData.teachers[nameKey] || parts[0];
+                        let room = parts[1] || "";
+
+                        // Check if this class is currently live
+                        const isLive = dayName === currentDayBN &&
+                            currentMinutes >= periodTimes[i - 1].start &&
+                            currentMinutes <= periodTimes[i - 1].end;
+
+                        html += `
+                        <div class="relative pl-12 timeline-item animate-card" style="animation-delay: ${i * 0.1}s">
+                            <div class="absolute left-0 top-1 w-10 h-10 ${isLive ? 'bg-emerald-500 live-pulse' : 'bg-white border-2 border-indigo-100'} rounded-2xl flex items-center justify-center ${isLive ? 'text-white shadow-lg shadow-emerald-200' : 'text-indigo-600 shadow-sm'} z-10 transition-all">
+                                <span class="text-[15px] font-black tracking-tighter">${periods[i - 1].id}</span>
+                            </div>
+                            <div class="glass p-5 rounded-3xl ${isLive ? 'border-2 border-indigo-500 shadow-xl shadow-indigo-100' : 'shadow-sm'} transition-all hover:shadow-md">
+                                <div class="flex justify-between items-center mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-1.5 h-1.5 rounded-full ${isLive ? 'bg-emerald-500 animate-ping' : 'bg-indigo-300'}"></div>
+                                        <div class="text-[13px] font-black text-indigo-400 uppercase tracking-widest">${periods[i - 1].time}</div>
+                                    </div>
+                                    <div class="bg-indigo-600 text-white text-[10px] px-3 py-1 rounded-xl font-bold tracking-wider">${room}</div>
+                                </div>
+                                <div class="text-xl font-bold text-gray-800 leading-snug">${fullName}</div>
+                                ${isLive ? '<div class="mt-2 text-[10px] font-bold text-emerald-600 flex items-center gap-1"><span class="flex h-2 w-2 rounded-full bg-emerald-500"></span> এখন চলছে</div>' : ''}
+                            </div>
+                        </div>`;
+                    }
+                }
+                html += '</div>';
+                container.innerHTML = html;
+            }
+        }
+    </script>
+</body>
+
+</html>
